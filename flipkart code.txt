@@ -1,0 +1,42 @@
+package com.projectname.qa.Testcases;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Fitpio {
+	public static void main (String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Lenovo\\Desktop\\chrome110\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		WebElement cancelbtn = driver.findElement(By.xpath("//button[text()='✕']"));
+		cancelbtn.click();
+		
+	      WebElement searchbox = driver.findElement(By.xpath("//input[@type='text']"));
+	      searchbox.sendKeys("ipad");
+	    
+	      WebElement optnipad = driver.findElement(By.xpath("//a[@class='_3izBDY']"));
+	      optnipad.click();
+	    
+	      WebElement filter = driver.findElement(By.xpath("//div[text()='4★ & above']"));
+		filter.click();
+		
+		WebElement ipadgrey = driver.findElement(By.xpath("//div[@class='_4rR01T']"));
+		ipadgrey.click();
+		
+		WebElement buynow = driver.findElement(By.xpath("//button[@type='button']"));
+		buynow.click();
+		
+		WebElement maxlength = driver.findElement(By.xpath("//input[@maxlength='auto']"));
+		maxlength.sendKeys("9890949117");
+		
+		driver.close();	
+		
+	}
+
+}
